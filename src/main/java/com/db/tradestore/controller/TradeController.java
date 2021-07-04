@@ -44,7 +44,7 @@ public class TradeController
       this.tradeModelMapper = tradeModelMapper;
    }
 
-   @GetMapping(value = "/trade")
+   @GetMapping(value = "/trade", produces = "application/json")
    @ResponseStatus(HttpStatus.OK)
    public TradeDTO getTrade(@RequestParam("tradeId") String tradeId)
    {
@@ -60,7 +60,7 @@ public class TradeController
       }
    }
 
-   @GetMapping(value = "/trades")
+   @GetMapping(value = "/trades", produces = "application/json")
    @ResponseStatus(HttpStatus.OK)
    public List<TradeDTO> getAllTrade()
    {
@@ -68,7 +68,7 @@ public class TradeController
       return tradeService.getAllTrade().stream().map(tradeModelMapper::convertToDto).collect(Collectors.toList());
    }
 
-   @PutMapping(value = "/trade")
+   @PutMapping(value = "/trade", produces = "application/json")
    @ResponseStatus(HttpStatus.OK)
    public TradeDTO createOrUpdateTrade(@RequestBody() TradeDTO tradeDTO)
    {

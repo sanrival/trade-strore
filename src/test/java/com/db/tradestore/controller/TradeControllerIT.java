@@ -35,14 +35,14 @@ public class TradeControllerIT
    @Test
    public void getTrade()
    {
-      final ResponseEntity<TradeDTO> forEntity = restTemplate.withBasicAuth("kamal@db.com", "valecha").getForEntity("/api/v1/trade?tradeId=T1", TradeDTO.class);
+      final ResponseEntity<TradeDTO> forEntity = restTemplate.withBasicAuth("test@db.com", "test").getForEntity("/api/v1/trade?tradeId=T1", TradeDTO.class);
       assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
    }
 
    @Test
    public void getAllTrade()
    {
-      final ResponseEntity<TradeDTO[]> forEntity = restTemplate.withBasicAuth("kamal@db.com", "valecha").getForEntity("/api/v1/trades", TradeDTO[].class);
+      final ResponseEntity<TradeDTO[]> forEntity = restTemplate.withBasicAuth("test@db.com", "test").getForEntity("/api/v1/trades", TradeDTO[].class);
       assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
    }
 
@@ -62,9 +62,9 @@ public class TradeControllerIT
       headers.set("X-COM-PERSIST", "true");
 
       HttpEntity<TradeDTO> request = new HttpEntity<>(tradeDTO, headers);
-      restTemplate.withBasicAuth("kamal@db.com", "valecha").put("/api/v1/trade/", request);
+      restTemplate.withBasicAuth("test@db.com", "test").put("/api/v1/trade/", request);
 
-      final ResponseEntity<TradeDTO> forEntity = restTemplate.withBasicAuth("kamal@db.com", "valecha").getForEntity("/api/v1/trade?tradeId=T2", TradeDTO.class);
+      final ResponseEntity<TradeDTO> forEntity = restTemplate.withBasicAuth("test@db.com", "test").getForEntity("/api/v1/trade?tradeId=T2", TradeDTO.class);
       assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
       assertThat(forEntity.getBody().getId()).isEqualTo("T2");
    }

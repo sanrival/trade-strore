@@ -65,7 +65,7 @@ public class TradeExpiryScheduledTaskTest
                   return yesterday;
                }
             });
-      assertThat(nextExecutionTime).isEqualTo(df.format("00:00:00"));
+      assertThat(df.format(nextExecutionTime)).isEqualTo("00:00:00");
       assertThat(nextExecutionTime).isNotNull();
       assertThat(yesterday.getDate() + 1).isEqualTo(nextExecutionTime.getDate());
    }
