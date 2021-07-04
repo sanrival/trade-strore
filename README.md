@@ -29,7 +29,10 @@ or you can use any REST API test tools such as Postman or SoapUI.
 
 a Sample trade with ID "T1" loaded at application start up.
 
-6). Authorize yourself as the api end points are secure. Two users are inbuilt in the application for test. * Username- kamal@db.com password valecha * Username- sandeep@db.com password nare
+6) Authorize yourself as the api end points are secure. Two users are inbuilt in the application for test.
+
+  * Username- kamal@db.com password valecha
+  * Username- sandeep@db.com password nare
 
 ## Task Description
 
