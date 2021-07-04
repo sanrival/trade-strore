@@ -21,15 +21,15 @@ These instructions will get you a copy of the project up and running on your loc
 4. Context path for the application is /api/v1.
 5. Test the endpoints using swagger http://localhost:8080/api/v1/swagger-ui.html#/
 
-GET * http://localhost:8080/api/v1/trade/{id}
-GET * http://localhost:8080/api/v1/trades
-PUT * http://localhost:8080/api/v1/trade/{trade}
+* GET http://localhost:8080/api/v1/trade/{id}
+* GET http://localhost:8080/api/v1/trades
+* PUT http://localhost:8080/api/v1/trade/{trade}
 
 or you can use any REST API test tools such as Postman or SoapUI.
 
 a Sample trade with ID "T1" loaded at application start up.
 
-6). Authorize yourself as the api end points are secure. Two users are inbuilt in the application for test. Username- kamal@db.com password valecha Username- sandeep@db.com password nare
+6). Authorize yourself as the api end points are secure. Two users are inbuilt in the application for test. * Username- kamal@db.com password valecha * Username- sandeep@db.com password nare
 
 ## Task Description
 
