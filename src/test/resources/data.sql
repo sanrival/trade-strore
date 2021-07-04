@@ -1,0 +1,3 @@
+INSERT INTO USER(ID, NAME, EMAIL, PASSWORD, ROLE_ID)
+VALUES (3, 'test', 'test@db.com', '$2a$10$0bRyLss/Bhj1FmtN79sdDORT7bgN5L8HkQ3Qf9iYcYmGaq5Pmv1Ha', 2);
+
