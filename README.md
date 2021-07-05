@@ -18,8 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository.
 2. Go inside the project directory using command line.
 3. Install mvn and execute mvn clean spring-boot:run. Application port is defaulted 8080.
-4. Context path for the application is /api/v1.
-5. Test the endpoints using swagger http://localhost:8080/api/v1/swagger-ui.html#/
+4. Test the endpoints using swagger http://localhost:8080/swagger-ui.html#/
 
 * GET http://localhost:8080/api/v1/trade/{id}
 * GET http://localhost:8080/api/v1/trades

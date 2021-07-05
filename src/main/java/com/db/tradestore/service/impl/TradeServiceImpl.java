@@ -6,8 +6,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
@@ -35,14 +35,16 @@ public class TradeServiceImpl implements TradeService
    }
 
    @Override
-   @CachePut(value = "trades", key = "#trade.id")
+   @Caching(evict = {
+         @CacheEvict(value = "trades", key = "#trade.id"),
+         @CacheEvict(value = "alltrades", allEntries = true) })
    public Trade createOrUpdateTrade(final Trade trade)
    {
       return tradeRepository.saveAndFlush(trade);
    }
 
    @Override
-   @Cacheable(value = "trades")
+   @Cacheable(value = "alltrades")
    public List<Trade> getAllTrade()
    {
       return tradeRepository.findAll();
@@ -70,7 +72,9 @@ public class TradeServiceImpl implements TradeService
       });
    }
 
-   @CacheEvict(value = "trades", condition = "#trade.id")
+   @Caching(evict = {
+         @CacheEvict(value = "trades", key = "#trade.id"),
+         @CacheEvict(value = "alltrades", allEntries = true) })
    public void saveTrade(final Trade trade)
    {
       tradeRepository.saveAndFlush(trade);
