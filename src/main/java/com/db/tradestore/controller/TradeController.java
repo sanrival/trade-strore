@@ -25,7 +25,11 @@ import com.db.tradestore.model.TradeDTO;
 import com.db.tradestore.service.TradeService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 
+@ApiOperation(value = "TradeStore Operations",
+      authorizations = { @Authorization(value = "basicAuth") })
 @Api(tags = "TradeStore")
 @RestController
 @RequestMapping(value = "/api/v1")

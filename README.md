@@ -20,8 +20,16 @@ These instructions will get you a copy of the project up and running on your loc
 3. Install mvn and execute mvn clean spring-boot:run. Application port is defaulted 8080.
 4. Test the endpoints using swagger http://localhost:8080/swagger-ui.html#/
 
-* GET http://localhost:8080/api/v1/trade/{id}
-* GET http://localhost:8080/api/v1/trades
+* GET http://localhost:8080/api/v1/trade/{id}  - Sample input Ta
+* GET http://localhost:8080/api/v1/trades - Sample input * {
+  "id": "T1",
+  "version": 1,
+  "counterpartyId": "CP-1",
+  "bookId": "B1",
+  "maturity": "2021-12-02",
+  "created": "2021-07-02",
+  "expired": false }
+
 * PUT http://localhost:8080/api/v1/trade/{trade}
 
 or you can use any REST API test tools such as Postman or SoapUI.
