@@ -1,6 +1,5 @@
 package com.db.tradestore.handler;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,15 +15,14 @@ public class TradeExceptionHandler extends ResponseEntityExceptionHandler
    @ExceptionHandler({ InvalidTradeException.class })
    public ResponseEntity<Object> handleInvalidTradeException(Exception ex)
    {
-      return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(),
-            HttpStatus.BAD_REQUEST);
+      return ResponseEntity.status(HttpStatus.OK).body(new Error(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
+
    }
 
    @ExceptionHandler({ TradeNotFoundException.class })
    public ResponseEntity<Object> handleTradeNotFoundException(Exception ex)
    {
-      return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(),
-            HttpStatus.NOT_FOUND);
+      return ResponseEntity.status(HttpStatus.OK).body(new Error(ex.getMessage(), HttpStatus.NOT_FOUND.value()));
    }
 
 }

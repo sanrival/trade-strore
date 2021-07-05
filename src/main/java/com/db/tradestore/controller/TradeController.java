@@ -76,12 +76,12 @@ public class TradeController
       Trade trade = tradeModelMapper.convertToEntity(tradeDTO);
       if (tradeService.isInValidTradeMaturityDate(trade))
       {
-         throw new InvalidTradeException("Trade Maturity Date is earlier than current.");
+         throw new InvalidTradeException("Invalid Request. Trade Maturity Date is earlier than current.");
       }
 
       if (tradeService.isInValidTradeVersion(trade))
       {
-         throw new InvalidTradeException("Trade version is lower than current.");
+         throw new InvalidTradeException("Invalid Request. Trade Version is lower than current.");
       }
 
       if (trade.getCreated() == null)
