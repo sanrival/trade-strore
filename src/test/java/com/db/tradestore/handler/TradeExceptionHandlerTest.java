@@ -18,8 +18,8 @@ class TradeExceptionHandlerTest
    {
       InvalidTradeException exception = new InvalidTradeException("Trade Maturity Date is earlier than current.");
       final ResponseEntity<Object> objectResponseEntity = tradeExceptionHandler.handleInvalidTradeException(exception);
-      assertThat(objectResponseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-      assertThat(objectResponseEntity.getBody()).isEqualTo("Trade Maturity Date is earlier than current.");
+      assertThat(objectResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+      assertThat(objectResponseEntity.getBody()).isEqualTo(new Error(exception.getMessage(), HttpStatus.BAD_REQUEST.value()));
    }
 
    @Test
@@ -27,7 +27,7 @@ class TradeExceptionHandlerTest
    {
       TradeNotFoundException exception = new TradeNotFoundException("Cannot find trade with given id.");
       final ResponseEntity<Object> objectResponseEntity = tradeExceptionHandler.handleTradeNotFoundException(exception);
-      assertThat(objectResponseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-      assertThat(objectResponseEntity.getBody()).isEqualTo("Cannot find trade with given id.");
+      assertThat(objectResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+      assertThat(objectResponseEntity.getBody()).isEqualTo(new Error(exception.getMessage(), HttpStatus.NOT_FOUND.value()));
    }
 }
